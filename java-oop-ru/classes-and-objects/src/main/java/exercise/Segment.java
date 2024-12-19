@@ -1,11 +1,11 @@
 package exercise;
 
 // BEGIN
-public class Segment {
-    private Point beginPoint;
-    private Point endPoint;
+class Segment {
+    private final Point beginPoint;
+    private final Point endPoint;
 
-    public Segment(Point beginPoint, Point endPoint) {
+    Segment(Point beginPoint, Point endPoint) {
         this.beginPoint = beginPoint;
         this.endPoint = endPoint;
     }
@@ -19,8 +19,9 @@ public class Segment {
     }
 
     public Point getMidPoint() {
-        int x = (beginPoint.getX() + endPoint.getX()) / 2;
-        int y = (beginPoint.getY() + endPoint.getY()) / 2;
+        var x = (beginPoint.getX() + endPoint.getX()) / 2;
+        var y = (beginPoint.getY() + endPoint.getY()) / 2;
+
         return new Point(x, y);
     }
 }
