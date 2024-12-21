@@ -1,27 +1,30 @@
 package exercise;
 
 // BEGIN
-public class Flat implements Home {
-    private double area;
-    private double balconyArea;
-    private int floor;
+class Flat implements Home {
+    private final double area;
+    private final double balconyArea;
+    private final int floor;
 
-    public Flat(double area, double balconyArea, int floor) {
+    Flat(double area, double balconyArea, int floor) {
         this.area = area;
         this.balconyArea = balconyArea;
         this.floor = floor;
     }
 
     public double getArea() {
-        return this.area + this.balconyArea;
+        return area + balconyArea;
     }
 
-    public int getFloor() {
-        return this.floor;
+    public int compareTo(Home anotherHome) {
+        Double area1 = this.getArea();
+        Double area2 = anotherHome.getArea();
+
+        return area1.compareTo(area2);
     }
 
     public String toString() {
-        return "Квартира площадью " + this.getArea() + " метров на " + this.getFloor() + " этаже";
+        return "Квартира площадью " + getArea() + " метров на " + floor + " этаже";
     }
 }
 // END

@@ -1,11 +1,11 @@
 package exercise;
 
 // BEGIN
-public class Cottage implements Home {
-    private double area;
-    private int floorCount;
+class Cottage implements Home {
+    private final double area;
+    private final int floorCount;
 
-    public Cottage(double area, int floorCount) {
+    Cottage(double area, int floorCount) {
         this.area = area;
         this.floorCount = floorCount;
     }
@@ -18,8 +18,15 @@ public class Cottage implements Home {
         return floorCount;
     }
 
+    public int compareTo(Home anotherHome) {
+        Double area1 = this.getArea();
+        Double area2 = anotherHome.getArea();
+
+        return area1.compareTo(area2);
+    }
+
     public String toString() {
-        return this.getFloorCount() + " этажный коттедж площадью " + this.getArea() + " метров";
+        return getFloorCount() + " этажный коттедж площадью " + getArea() + " метров";
     }
 }
 // END

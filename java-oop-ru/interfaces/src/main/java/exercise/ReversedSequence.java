@@ -1,38 +1,27 @@
 package exercise;
 
 // BEGIN
-public class ReversedSequence implements CharSequence {
-    private String normalString;
-    private String reversedString;
+class ReversedSequence implements java.lang.CharSequence {
+    private final String string;
 
-    public ReversedSequence(String str) {
-        this.normalString = str;
-        this.reversedString = reverseString(str);
-    }
-
-    public char charAt(int index) {
-        return reversedString.charAt(index);
+    ReversedSequence(String string) {
+        this.string = new StringBuilder(string).reverse().toString();
     }
 
     public int length() {
-        return reversedString.length();
+        return string.length();
     }
 
-    public ReversedSequence subSequence(int start, int end) {
-        String substring = reversedString.substring(start, end);
-        return new ReversedSequence(reverseString(substring));
+    public char charAt(int index) {
+        return string.charAt(index);
+    }
+
+    public CharSequence subSequence(int start, int end) {
+        return string.subSequence(start, end);
     }
 
     public String toString() {
-        return reversedString;
-    }
-
-    private String reverseString(String str) {
-        String result = "";
-        for (int i = 0; i < str.length(); i++) {
-            result = str.charAt(i) + result;
-        }
-        return result;
+        return string;
     }
 }
 // END
